@@ -1,10 +1,12 @@
-from selenium.webdriver.chrome.options import Options
+import time
 
-options = Options()
-options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
-browser = webdriver.Chrome(options=options)
+link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
 
-button_text_elt = browser.find_element_by_css_selector(".btn-add-to-basket")
-button_text = button_text_elt.text
+def test_button(browser):
+    browser.get(link)
+    browser.find_element_by_class_name("btn-add-to-basket")
+    time.sleep(30)
 
-assert button_text == "Correct!", "No such button"
+    browser.find_element_by_class_name("btn-add-to-basket")
+
+    assert True, "No such button"
